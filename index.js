@@ -1,7 +1,10 @@
 const express = require("express");
-const axios = require("axios");
 const cors = require("cors");
 const getCatsByFriendliness = require("./endpoints");
+const { config } = require('dotenv');
+
+config()
+
 const server = express();
 server.use(express.json());
 server.use(cors());
@@ -12,4 +15,4 @@ server.get("/", async (req, res) => {
     .then((response) => res.send(getCatsByFriendliness(response, req.query)));
 });
 
-server.listen(3500, () => console.log("running port 3500..."));
+server.listen(process.env.PORT, () => console.log(`running port ${process.env.PORT}...`));
