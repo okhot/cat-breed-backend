@@ -7,15 +7,13 @@ function getCatsByFriendliness(
   const response = [];
   data.forEach(
     ({ child_friendly, dog_friendly, stranger_friendly, ...others }) => {
-      const firstPass = isChildFriendly ? child_friendly : 0;
-      const secondPass = isDogFriendly ? dog_friendly : 0;
-      const thirdPass = isStrangerFriendly ? stranger_friendly : 0;
+      const firstPass = isChildFriendly === 'true' ? child_friendly : 0;
+      const secondPass = isDogFriendly === 'true' ? dog_friendly : 0;
+      const thirdPass = isStrangerFriendly === 'true' ? stranger_friendly : 0;
 
       const sum = firstPass + secondPass + thirdPass;
 
-      sum === 0
-        ? response.push({})
-        : response.push({ friendlyLevel: sum, ...others });
+      response.push({ friendlyLevel: sum, ...others, child_friendly, dog_friendly, stranger_friendly });
     }
   );
 
