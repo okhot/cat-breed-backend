@@ -25,4 +25,4 @@ to run the project.
 ## Quick Links
 Follow the link to setup the Frontend
 
-- [Frontend](https://github.com/okhot/-cat-breed-front)
+- [Frontend](https://github.com/okhot/-cat-breed-front#readme)
